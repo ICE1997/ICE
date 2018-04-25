@@ -5,9 +5,8 @@
 //  Created by mason on 2018/4/25.
 //  Copyright © 2018年 mason. All rights reserved.
 //
-
 #include "stdhd.h"
-#include "strt_body.h"
+#include "surf_main_menu.h"
 struct tm *get_time(void){
     time_t t;
     struct tm *now;

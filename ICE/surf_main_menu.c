@@ -6,7 +6,7 @@
 //  Copyright © 2018年 mason. All rights reserved.
 //
 #include "stdhd.h"
-#include "func_dcl.h"
+#include "all_func_dcl.h"
 int main(int argc, const char * argv[]) {
     struct tm *now_time;
     int menu_choi=0;
