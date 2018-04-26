@@ -1,5 +1,5 @@
 //
-//  strt_body.h
+//  surf_main_menu.h
 //  ICE
 //
 //  Created by mason on 2018/4/25.
@@ -13,3 +13,4 @@ struct tm *get_time(void);
 grt surf_main_menu_greeting(void);
 void load_surf_main_menu(void);
 void get_surf_main_menu_choi(void);
+int main(void);

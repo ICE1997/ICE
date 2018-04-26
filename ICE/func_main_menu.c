@@ -1,5 +1,5 @@
 //
-//  func_body.c
+//  func_main_menu.c
 //  ICE
 //
 //  Created by mason on 2018/4/25.
@@ -7,6 +7,7 @@
 //
 #include "stdhd.h"
 #include "surf_main_menu.h"
+#include "surf_game_menu.h"
 
 struct tm *get_time(void){
     time_t t;
@@ -59,6 +60,7 @@ void load_surf_main_menu(void){
     printf("*                                             *\n");
     printf("-----------------------------------------------\n");
     printf("Please select:");
+    get_surf_main_menu_choi();
 }
 
 void get_surf_main_menu_choi(void){
@@ -70,6 +72,8 @@ void get_surf_main_menu_choi(void){
         switch (menu_choi) {
             case 1:
                 Wrong=-1;
+                system("clear");
+                surf_game_menu();
                 break;
             case 2:
                 Wrong=-1;
