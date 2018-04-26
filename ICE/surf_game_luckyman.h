@@ -8,12 +8,14 @@
 
 #include "stdhd.h"
 
-struct lkm_acnt{
+#ifndef LKM_ACNT
+#define LKM_ACNT
+typedef struct lkm_acnt{
     char username[20];
     int lucky_index;
     int rank;
-};
-
+}lkm_acnt;
+#endif
 void load_surf_game_luckyman(void);
 void get_surf_game_luckyman_choi(void);
 void surf_game_luckyman(void);
