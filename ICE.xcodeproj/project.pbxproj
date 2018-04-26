@@ -30,7 +30,7 @@
 		93210B232090732B00B248ED /* stdhd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stdhd.h; sourceTree = "<group>"; };
 		93210B242090771900B248ED /* surf_main_menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = surf_main_menu.h; sourceTree = "<group>"; };
 		93210B252090776100B248ED /* func_main_menu.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = func_main_menu.c; sourceTree = "<group>"; };
-		93210B2720907B9600B248ED /* all_func_dcl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = all_func_dcl.h; sourceTree = "<group>"; };
+		93210B2720907B9600B248ED /* global_func_dcl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = global_func_dcl.h; sourceTree = "<group>"; };
 		93268A9E2090ADFD00563AA8 /* surf_game_menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = surf_game_menu.h; sourceTree = "<group>"; };
 		93268A9F2090ADFD00563AA8 /* surf_game_menu.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = surf_game_menu.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,7 +71,7 @@
 				93210B252090776100B248ED /* func_main_menu.c */,
 				93268A9E2090ADFD00563AA8 /* surf_game_menu.h */,
 				93268A9F2090ADFD00563AA8 /* surf_game_menu.c */,
-				93210B2720907B9600B248ED /* all_func_dcl.h */,
+				93210B2720907B9600B248ED /* global_func_dcl.h */,
 			);
 			path = ICE;
 			sourceTree = "<group>";

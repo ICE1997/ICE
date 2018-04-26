@@ -6,6 +6,3 @@
 //  Copyright © 2018年 mason. All rights reserved.
 //
 #include "surf_main_menu.h"
-struct tm *get_time(void);
-grt greeting(void);
-

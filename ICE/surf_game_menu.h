@@ -6,9 +6,4 @@
 //  Copyright © 2018年 mason. All rights reserved.
 //
 
-#ifndef surf_game_menu_h
-#define surf_game_menu_h
 
-#include <stdio.h>
-
-#endif /* surf_game_menu_h */
