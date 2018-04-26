@@ -66,7 +66,7 @@ void load_surf_main_menu(void){
 void get_surf_main_menu_choi(void){
     int menu_choi=0;
     int Wrong=1;
-    int try_time=1;
+    int try_time=0;
     scanf("%d",&menu_choi);
     while(Wrong==1){
         switch (menu_choi) {
@@ -88,11 +88,12 @@ void get_surf_main_menu_choi(void){
                 break;
             default:
                 try_time++;
-                printf("(%d times left)TRY AGAIN:",4-try_time);
-                scanf("%d",&menu_choi);
                 if(try_time>2){
-                    printf("You've tried 3 times!\n");
+                    printf("You've tried %d times!\n",try_time);
                     Wrong=-1;
+                }else{
+                    printf("(%d times left)TRY AGAIN:",3-try_time);
+                    scanf("%d",&menu_choi);
                 }
         }
     }

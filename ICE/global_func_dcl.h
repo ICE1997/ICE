@@ -7,3 +7,4 @@
 //
 #include "surf_main_menu.h"
 #include "surf_game_menu.h"
+#include "surf_game_luckyman.h"
