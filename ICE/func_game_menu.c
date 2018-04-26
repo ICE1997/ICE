@@ -39,31 +39,31 @@ void get_surf_game_menu_choi(void){
     int Wrong=1;
     int try_time=0;
     scanf("%d",&game_menu_choi);
-    while(Wrong==1){
+    while(Wrong){
         switch (game_menu_choi) {
             case 1:
                 system("clear");
                 surf_game_luckyman();
-                Wrong=-1;
+                Wrong=0;
                 break;
             case 2:
                 system("clear");
-                Wrong=-1;
+                Wrong=0;
                 break;
             case 3:
                 system("clear");
-                Wrong=-1;
+                Wrong=0;
                 break;
             case 0:
                 system("clear");
                 main();
-                Wrong=-1;
+                Wrong=0;
                 break;
             default:
                 try_time++;
                 if(try_time>2){
                     printf("You've tried %d times!\n",try_time);
-                    Wrong=-1;
+                    Wrong=0;
                 }else{
                     printf("(%d times left)TRY AGAIN:",3-try_time);
                     scanf("%d",&game_menu_choi);

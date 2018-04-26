@@ -47,6 +47,7 @@ void get_surf_game_luckyman_choi(void){
             case 2:
                 Wrong=-1;
                 system("clear");
+                surf_game_luckyman_register();
                 break;
             case 0:
                 Wrong=-1;
@@ -71,7 +72,57 @@ void surf_game_luckyman_login(void){
 }
 
 void surf_game_luckyman_register(void){
+    FILE* F_plyer_r,*F_plyer_w;
+    lkm_acnt player;
+    P_lkm_anct P_player_head,P_player_tail,P_player_ele;
+    int TRUE=1;
+    int EXSIT=0;
+    int try_time=0;
     printf("------------------Register---------------------\n");
-    printf("Username:");
+    if((F_plyer_r=fopen("/Users/mason/Desktop/ICE/ICE/ICE/plyerinfo","r"))==NULL){
+        printf("Fail to open the player file.\n");
+    }else{
+        if((P_player_head=(P_lkm_anct)malloc(sizeof(lkm_acnt)))==NULL){
+            printf("OverFlow!\n");
+            exit(0);
+        }else{
+            P_player_tail=P_player_head;
+            printf("Succeed in loading the player file.\n");
+            while (!feof(F_plyer_r)) {
+                if((P_player_ele=(P_lkm_anct)malloc(sizeof(lkm_acnt)))==NULL){
+                    printf("OverFlow!\n");
+                    exit(0);
+                }
+                fscanf(F_plyer_r, "%s %d %d\n",P_player_ele->username,&P_player_ele->lucky_index,&P_player_ele->rank);
+                P_player_ele->next=NULL;
+                P_player_tail->next=P_player_ele;
+                P_player_tail=P_player_ele;
+            }
+            while(TRUE){
+                printf("Username:");
+                scanf("%s",player.username);
+                for(P_player_ele=P_player_head->next;
+                    P_player_ele!=NULL;
+                    P_player_ele=P_player_ele->next){
+                    if((strcmp(player.username, P_player_ele->username))==0){
+                        EXSIT=1;
+                    }
+                }
+                if(EXSIT){
+                    try_time++;
+                    printf("(%d times left)User exist!\n",3-try_time);
+                    if(try_time>2){
+                        printf("You've tried %d times!\n",try_time);
+                        printf("Backing to Luckyman surface.\n");
+                        usleep(20000);
+                        system("clear");
+                        surf_game_luckyman();
+                    }
+                }else{
+                    TRUE=0;
+                }
+            }
+        }
+    }
     
 }

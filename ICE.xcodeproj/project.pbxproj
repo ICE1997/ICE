@@ -37,6 +37,7 @@
 		93268A9E2090ADFD00563AA8 /* surf_game_menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = surf_game_menu.h; sourceTree = "<group>"; };
 		93268A9F2090ADFD00563AA8 /* surf_game_menu.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = surf_game_menu.c; sourceTree = "<group>"; };
 		934086B520916444002FAA7B /* func_game_menu.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = func_game_menu.c; sourceTree = "<group>"; };
+		934749C820920D9900701309 /* plyerinfo */ = {isa = PBXFileReference; lastKnownFileType = text; path = plyerinfo; sourceTree = "<group>"; };
 		93B94B132091EA7700043C82 /* surf_game_luckyman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = surf_game_luckyman.h; sourceTree = "<group>"; };
 		93B94B142091EA7700043C82 /* surf_game_luckyman.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = surf_game_luckyman.c; sourceTree = "<group>"; };
 		93B94B162091EAA100043C82 /* func_game_luckyman.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = func_game_luckyman.c; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 				93B94B142091EA7700043C82 /* surf_game_luckyman.c */,
 				93B94B162091EAA100043C82 /* func_game_luckyman.c */,
 				93210B2720907B9600B248ED /* global_func_dcl.h */,
+				934749C820920D9900701309 /* plyerinfo */,
 			);
 			path = ICE;
 			sourceTree = "<group>";
