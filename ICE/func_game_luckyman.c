@@ -43,6 +43,7 @@ void get_surf_game_luckyman_choi(void){
             case 1:
                 Wrong=-1;
                 system("clear");
+                surf_game_luckyman_login();
                 break;
             case 2:
                 Wrong=-1;
@@ -68,59 +69,181 @@ void get_surf_game_luckyman_choi(void){
     
 }
 void surf_game_luckyman_login(void){
-    
-}
-
-void surf_game_luckyman_register(void){
-    FILE* F_plyer_r,*F_plyer_w;
+    FILE* F_player_r;
     lkm_acnt player;
-    P_lkm_anct P_player_head,P_player_tail,P_player_ele;
-    int TRUE=1;
-    int EXSIT=0;
-    int try_time=0;
-    printf("------------------Register---------------------\n");
-    if((F_plyer_r=fopen("/Users/mason/Desktop/ICE/ICE/ICE/plyerinfo","r"))==NULL){
-        printf("Fail to open the player file.\n");
+    int usrname_Loop_YES=1;
+    int usrname_EXSIT_NO=0;
+    int usrpswd_MATCH_NO=0;
+    int usrpswd_Loop_YES=1;
+    int usrname_TRY_TIME=0;
+    int usrpswd_TRY_TIME=0;
+    P_lkm_anct P_player_head,P_player_tail,P_player_ele,P_player_temp;
+    P_player_temp=NULL;
+    printf("-------------------Login-----------------------\n");
+    if((F_player_r=fopen("/Users/mason/Desktop/ICE/ICE/ICE/player_acnt","r"))==NULL){
+        printf("Fail to open the player account file.\n");
     }else{
         if((P_player_head=(P_lkm_anct)malloc(sizeof(lkm_acnt)))==NULL){
             printf("OverFlow!\n");
             exit(0);
         }else{
             P_player_tail=P_player_head;
-            printf("Succeed in loading the player file.\n");
-            while (!feof(F_plyer_r)) {
+            printf("Succeed in loading the player account file.\n");
+            while (!feof(F_player_r)) {
                 if((P_player_ele=(P_lkm_anct)malloc(sizeof(lkm_acnt)))==NULL){
                     printf("OverFlow!\n");
                     exit(0);
                 }
-                fscanf(F_plyer_r, "%s %d %d\n",P_player_ele->username,&P_player_ele->lucky_index,&P_player_ele->rank);
+                fscanf(F_player_r, "%s %s\n",P_player_ele->username,P_player_ele->password);
                 P_player_ele->next=NULL;
                 P_player_tail->next=P_player_ele;
                 P_player_tail=P_player_ele;
             }
-            while(TRUE){
+            while(usrname_Loop_YES){
                 printf("Username:");
                 scanf("%s",player.username);
                 for(P_player_ele=P_player_head->next;
                     P_player_ele!=NULL;
                     P_player_ele=P_player_ele->next){
                     if((strcmp(player.username, P_player_ele->username))==0){
-                        EXSIT=1;
+                        P_player_temp=P_player_ele;
+                        usrname_EXSIT_NO=0;
+                    }else{
+                        usrname_EXSIT_NO=1;
                     }
                 }
-                if(EXSIT){
-                    try_time++;
-                    printf("(%d times left)User exist!\n",3-try_time);
-                    if(try_time>2){
-                        printf("You've tried %d times!\n",try_time);
+                if(usrname_EXSIT_NO){
+                    usrname_TRY_TIME++;
+                    printf("(%d times left)User not exist!\n",3-usrname_TRY_TIME);
+                    if(usrname_TRY_TIME>2){
+                        printf("You've tried %d times!\n",usrname_TRY_TIME);
                         printf("Backing to Luckyman surface.\n");
-                        usleep(20000);
+                        usleep(2000);
                         system("clear");
                         surf_game_luckyman();
                     }
                 }else{
-                    TRUE=0;
+                    usrname_Loop_YES=0;
                 }
+            }
+            while(usrpswd_Loop_YES){
+                printf("Password:");
+                scanf("%s",player.password);
+                if((strcmp(P_player_temp->password, player.password))!=0){
+                    usrpswd_MATCH_NO=1;
+                }else{
+                    usrpswd_MATCH_NO=0;
+                }
+                if(usrpswd_MATCH_NO){
+                    usrpswd_TRY_TIME++;
+                    printf("(%d times left)Password incorrect!\n",3-usrpswd_TRY_TIME);
+                    if(usrpswd_TRY_TIME>2){
+                        printf("You've tried %d times!\n",usrpswd_TRY_TIME);
+                        printf("Backing to Luckyman surface.\n");
+                        usleep(2000);
+                        system("clear");
+                        surf_game_luckyman();
+                    }
+                }else{
+                    usrpswd_Loop_YES=0;
+                }
+            }
+            printf("Successful!Enjoy yourself!\n");
+            system("clear");
+        }
+    }
+    
+}
+
+void surf_game_luckyman_register(void){
+    FILE* F_player_r,*F_player_w;
+    lkm_acnt player,player_temp;
+    P_lkm_anct P_player_head,P_player_tail,P_player_ele;
+    int usrname_Loop_YES=1;
+    int usrname_EXSIT_YES=0;
+    int usrpswd_MATCH_NO=0;
+    int usrpswd_Loop_YES=1;
+    int usrname_TRY_TIME=0;
+    int usrpswd_TRY_TIME=0;
+    printf("------------------Register---------------------\n");
+    if((F_player_r=fopen("/Users/mason/Desktop/ICE/ICE/ICE/player_acnt","r"))==NULL){
+        printf("Fail to open the player account file.\n");
+    }else{
+        if((P_player_head=(P_lkm_anct)malloc(sizeof(lkm_acnt)))==NULL){
+            printf("OverFlow!\n");
+            exit(0);
+        }else{
+            P_player_tail=P_player_head;
+            printf("Succeed in loading the player account file.\n");
+            while (!feof(F_player_r)) {
+                if((P_player_ele=(P_lkm_anct)malloc(sizeof(lkm_acnt)))==NULL){
+                    printf("OverFlow!\n");
+                    exit(0);
+                }
+                fscanf(F_player_r, "%s %s\n",P_player_ele->username,P_player_ele->password);
+                P_player_ele->next=NULL;
+                P_player_tail->next=P_player_ele;
+                P_player_tail=P_player_ele;
+            }
+            while(usrname_Loop_YES){
+                printf("Username:");
+                scanf("%s",player.username);
+                for(P_player_ele=P_player_head->next;
+                    P_player_ele!=NULL;
+                    P_player_ele=P_player_ele->next){
+                    if((strcmp(player.username, P_player_ele->username))==0){
+                        usrname_EXSIT_YES=1;
+                    }else{
+                        usrname_EXSIT_YES=0;
+                    }
+                }
+                if(usrname_EXSIT_YES){
+                    usrname_TRY_TIME++;
+                    printf("(%d times left)User exist!\n",3-usrname_TRY_TIME);
+                    if(usrname_TRY_TIME>2){
+                        printf("You've tried %d times!\n",usrname_TRY_TIME);
+                        printf("Backing to Luckyman surface.\n");
+                        usleep(2000);
+                        system("clear");
+                        surf_game_luckyman();
+                    }
+                }else{
+                    usrname_Loop_YES=0;
+                }
+            }
+            printf("Password:");
+            scanf("%s",player.password);
+            while(usrpswd_Loop_YES){
+                printf("Confirm:");
+                scanf("%s",player_temp.password);
+                if((strcmp(player_temp.password, player.password)!=0)){
+                    usrpswd_MATCH_NO=1;
+                }else{
+                    usrpswd_MATCH_NO=0;
+                }
+                if(usrpswd_MATCH_NO){
+                    usrpswd_TRY_TIME++;
+                    printf("(%d times left)Mismatch!\n",3-usrpswd_TRY_TIME);
+                    if(usrpswd_TRY_TIME>2){
+                        printf("You've tried %d times!\n",usrpswd_TRY_TIME);
+                        printf("Backing to Luckyman surface.\n");
+                        usleep(2000);
+                        system("clear");
+                        surf_game_luckyman();
+                    }
+                }else{
+                    usrpswd_Loop_YES=0;
+                }
+            }
+            if((F_player_w=fopen("/Users/mason/Desktop/ICE/ICE/ICE/plyer_acnt","a+"))==NULL){
+                printf("Can't save your acount!\n");
+            }else{
+                fprintf(F_player_w,"%s %s\n",player.username,player.password);
+                printf("Succeed in creating the new account!\n");
+                printf("Going to the login surface!\n");
+                usleep(2000);
+                system("clear");
+                surf_game_luckyman_login();
             }
         }
     }

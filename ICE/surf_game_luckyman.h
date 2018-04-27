@@ -12,12 +12,12 @@
 #define LKM_ACNT
 typedef struct lkm_acnt{
     char username[20];
-    int lucky_index;
-    int rank;
+    char password[20];
     struct lkm_acnt* next;
 }lkm_acnt;
 typedef lkm_acnt* P_lkm_anct;
 #endif
+
 void load_surf_game_luckyman(void);
 void get_surf_game_luckyman_choi(void);
 void surf_game_luckyman(void);
