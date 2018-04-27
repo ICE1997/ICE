@@ -17,7 +17,7 @@ void load_surf_game_menu(void){
     printf("*                                             *\n");
     printf("*---------------------------------------------*\n");
     printf("*                                             *\n");
-    printf("*    What game wanna play?                    *\n");
+    printf("*    What game you wanna play?                *\n");
     printf("*                                             *\n");
     printf("*---------------------------------------------*\n");
     printf("*                                             *\n");
