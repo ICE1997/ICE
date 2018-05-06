@@ -40,7 +40,7 @@ void load_surf_main_menu(void){
     printf("--------------------Welcome--------------------\n");
     printf("*    Hello! Mason! %20s       *\n",grts.grt_ph);
     printf("*                                             *\n");
-    printf("*    Date:  %4d.%02d.%2d                        *\n",
+    printf("*    Date:  %4d.%02d.%02d                        *\n",
            1900+now_time->tm_year,1+now_time->tm_mon,now_time->tm_mday);
     printf("*    Time:  %02d:%02d:%02d                          *\n",
            now_time->tm_hour,now_time->tm_min,now_time->tm_sec);
